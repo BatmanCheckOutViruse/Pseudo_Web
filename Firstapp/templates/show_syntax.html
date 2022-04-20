@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Mono" />
+    <meta charset="UTF-8">
+    <title>Cheatsheet</title>
+    <style type='text/css'>
+        .div1{
+        margin-left:50px;
+        max-width: 80ch;
+        }
+        .div2{
+        margin-left:100px
+        }
+        .codebox {
+            background-color: #E7E7E7 ;
+            width:600px;
+            padding: 5px ;
+            border: 0px solid black ;
+            font-family: "Ubuntu Mono";
+            color: black;
+            }
+        .examplebox{
+            background-color: #F9BE94 ;
+            width:600px;
+            padding: 5px ;
+            border: 0px solid green ;
+            font-family: "Ubuntu Mono";
+            color: black;
+            }
+        }
+        .w3-codespan {
+            color: crimson;
+            background-color: #f1f1f1;
+            padding-left: 4px;
+            padding-right: 4px;
+            font-size: 110%;
+        }
+    </style>
+</head>
+<body style="font-family: sans-serif">
+    <h1>Cheatsheet</h1>
+    <details>
+        <summary style="font-size : 20px">IF statements</summary>
+        <div class = "div1">
+            <details>
+                <summary>IF</summary>
+
+                    <div class = "div1">
+                        Syntax:<br>
+                        <div class = "div1">
+                            Statements inside the IF statement will only be executed if the condition is True.<br>
+                            <div class= "codebox" >
+                                <span style="color : blue;">IF</span> condition <span style="color : blue;">THEN</span><br>
+                                &emsp;statements<br>
+                                <span style="color : blue;">ENDIF</span>
+                            </div>
+                        </div>
+
+                        <br>
+                        Example:
+                        <div class = "div1">
+                            <div class= "examplebox" >
+                                mark = 40<br>
+                                IF mark < 50 THEN<br>
+                                &emsp;Display "fail"<br>
+                                ENDIF
+                            </div>
+                        "fail" will be displayed on the console.
+                        </div>
+                    </div>
+            </details>
+
+             <details>
+                <summary>ELSE IF</summary>
+                    <div class = "div1">
+                        Syntax:<br>
+                        <div class = "div1">
+                            If the previous conditions are false and the condition after ELSE IF is true , than the statements inside ELSE IF will be executed instead.<br>
+                            <div class= "codebox" >
+                                <span style="color : blue;">IF</span> condition <span style="color : blue;">THEN</span><br>
+                                &emsp;statements<br>
+                                <span style="color : blue;">ELSE IF</span> condition <span style="color : blue;">THEN</span><br>
+                                &emsp;statements<br>
+                                <span style="color : blue;">ENDIF</span>
+                            </div>
+                        </div>
+
+                    <br>
+                    Example:
+
+                        <div class = "div1">
+                            <div class= "examplebox" >
+                                mark = 60<br>
+                                IF mark < 50 THEN<br>
+                                &emsp;Display "fail"<br>
+                                ELSE IF mark < 70 THEN<br>
+                                &emsp;Display "Good"<br>
+                                ENDIF
+                            </div>
+                            "Good" will be displayed on the console.
+                        </div>
+                    </div>
+            </details>
+            <details>
+                <summary>ELSE</summary>
+                    <div class = "div1">
+                        Syntax:<br>
+                        <div class = "div1">
+                            If all the previous conditions are false ,than the statements inside ELSE will be executed.<br>
+                            <div class= "codebox" >
+                                <span style="color : blue;">IF</span> condition <span style="color : blue;">THEN</span><br>
+                                &emsp;statements<br>
+                                <span style="color : blue;">ELSE IF</span> condition <span style="color : blue;">THEN</span><br>
+                                &emsp;statements<br>
+                                <span style="color : blue;">ELSE</span><br>
+                                &emsp;statements<br>
+                                <span style="color : blue;">ENDIF</span>
+                            </div>
+                        </div>
+
+                    <br>
+                    Example:
+
+                        <div class = "div1">
+                            <div class= "examplebox" >
+                                mark = 80<br>
+                                IF mark < 50 THEN<br>
+                                &emsp;Display "fail"<br>
+                                ELSE IF mark < 70 THEN<br>
+                                &emsp;Display "Good"<br>
+                                ELSE<br>
+                                &emsp;Display "Excellent"<br>
+                                ENDIF
+                            </div>
+                            "Excellent" will be displayed on the console.
+                        </div>
+                    </div>
+            </details>
+        </div>
+    </details>
+
+    <details>
+        <summary style="font-size : 20px">WHILE loop</summary>
+        <div class="div1">
+            Syntax:
+            <div class="div1">
+                As long as the condition is true , statements will repeatedly executes.
+                <div class = "codebox">
+                    <span style="color : blue;">WHILE</span> condition <br>
+                    &emsp; statements <br>
+                    <span style="color : blue;">ENDWHILE</span>
+                </div>
+            </div>
+            Example:
+            <div class="div1">
+                <div class = "examplebox">
+                    number = 1<br>
+                    WHILE number < 100<br>
+                    &emsp; number = number + 1 <br>
+                    ENDWHILE<br>
+                    Display number<br>
+                </div>
+                "100" will be displayed on the screen.
+            </div>
+        </div>
+    </details>
+
+
+
+    <details>
+        <summary style="font-size : 20px">REPEAT UNTIL loop</summary>
+        <div class="div1">
+            Syntax:
+            <div class="div1">
+                Statements will repeatedly executes until conditions is false.
+                <div class = "codebox">
+                    <span style="color : blue;">REPEAT</span><br>
+                    &emsp; statements <br>
+                    <span style="color : blue;">UNTIL</span> condition
+                </div>
+            </div>
+            Example:
+            <div class="div1">
+                <div class = "examplebox">
+                    number = 1<br>
+                    REPEAT<br>
+                    &emsp; number = number + 1 <br>
+                    UNTIL number < 100
+                </div>
+                "100" will be displayed on the screen.
+            </div>
+        </div>
+
+    </details>
+
+
+
+    <details>
+        <summary style="font-size : 20px">FOR loop</summary>
+        <div class="div1">
+            Syntax:
+            <div class="div1">
+                A variable name <span style="color : crimson;">VariableName</span> with an integer value <span style="color : crimson;">StartNumber</span> will be created , each iteration this number will change by <span style="color : crimson;">StepNumber</span> until it reaches <span style="color : crimson;">EndNumber</span>.
+                <div class = "codebox">
+                    <span style="color : blue;">FOR</span> <span style="color : crimson;">VariableName</span> <span style="color : blue;">=</span> <span style="color : crimson;">StartNumber</span> <span style="color : blue;">TO</span> <span style="color : crimson;">EndNumber</span> <span style="color : blue;">STEP</span> <span style="color : crimson;">StepNumber</span><br>
+                    &emsp; statements <br>
+                    <span style="color : blue;">NEXT</span> <span style="color : crimson;">VariableName</span>
+                </div>
+            </div>
+            Example:
+            <div class="div1">
+                <div class = "examplebox">
+                    FOR i = 2 TO 100 STEP 2<br>
+                    Display i<br>
+                    NEXT i
+                </div>
+                All even numbers between 1-100 will be displayed on the screen.
+            </div>
+        </div>
+    </details>
+
+    <details>
+        <summary style="font-size : 20px">CASEWHERE statement</summary>
+        <div class="div1">
+            Syntax:
+            <div class="div1">
+                If the variable <span style="color : crimson;">VariableName</span> equal to one of the <span style="color : crimson;">Value</span> then the statement follow by will be executed , else if the statement after <span style="color : blue;">OTHERWISE</span> will be executed.
+                <div class = "codebox">
+                    <span style="color : blue;">CASEWHERE</span> <span style="color : crimson;">VariableName</span><br>
+                    &emsp;<span style="color : crimson;">Value1</span> : statement1<br>
+                    &emsp;<span style="color : crimson;">Value2</span> : statement2<br>
+                    &emsp;<span style="color : crimson;">Value3</span> : statement3<br>
+                    &emsp;<span style="color : blue;">OTHERWISE</span> : statement<br>
+                    <span style="color : blue;">ENDCASE</span>
+                </div>
+            </div>
+            Example:
+            <div class="div1">
+                <div class = "examplebox">
+                    Name = "Eliza"<br>
+                    CASEWHERE Name<br>
+                    &emsp;"Janelle" : Display "I want to go home"<br>
+                    &emsp;"Eliza" : Display "Hi"<br>
+                    &emsp;OTHERWISE : Display "?"<br>
+                    ENDCASE<br>
+                </div>
+                "Hi" will be displayed.
+            </div>
+        </div>
+
+    </details>
+
+    <details>
+        <summary style="font-size : 20px">Declare a variable</summary>
+
+        <div class="div1">
+            Syntax:
+            <div class="div1">
+                <span style="color : crimson;"> Value </span> will be assigned to <span style="color : crimson;">VariableName</span>
+                <div class = "codebox">
+                    <span style="color : crimson;">VariableName</span> = <span style="color : crimson;">Value</span>
+                </div>
+            </div>
+            Example:
+            <div class="div1">
+                <div class = "examplebox">
+                    number = 1<br>
+                    Display number
+                </div>
+                "1" will be displayed on the screen.
+            </div>
+        </div>
+
+    </details>
+
+    <details>
+        <summary style="font-size : 20px">Declare an array</summary>
+
+        <div class="div1">
+            Syntax:
+            <div class="div1">
+                First element in <span style="color : crimson;">ArrayName</span>(with index 0) will be <span style="color : crimson;">Value0</span>, second element will be <span style="color : crimson;">Value1</span>, third element will be <span style="color : crimson;">Value2</span>...etc. Array can only single variable type.
+                <div class = "codebox">
+                    <span style="color : crimson;">ArrayName</span>[] = {<span style="color : crimson;">Value0</span>,<span style="color : crimson;">Value1</span>,<span style="color : crimson;">Value2</span> }
+                </div>
+            </div>
+            Example:
+            <div class="div1">
+                <div class = "examplebox">
+                    a[] = {1,3,5}<br>
+                    Display a[1]
+                </div>
+                "3" will be displayed on the screen.
+            </div>
+        </div>
+
+    </details>
+
+    <details>
+        <summary style="font-size : 20px">Declare a 2D array</summary>
+
+        <div class="div1">
+            Syntax:
+            <div class="div1">
+                <div class = "codebox">
+                    <span style="color : crimson;">ArrayName</span>[] = { {<span style="color : crimson;">i0j0</span>,<span style="color : crimson;">i0j1</span>,<span style="color : crimson;">i0j2</span>}, {<span style="color : crimson;">i1j0</span>,<span style="color : crimson;">i1j1</span>,<span style="color : crimson;">i1j2</span>} }
+                </div>
+            </div>
+            Example:
+            <div class="div1">
+                <div class = "examplebox">
+                    a[] = { {1,2,3}, {4,5,6} }<br>
+                    Display a[1,1]
+                </div>
+                "5" will be displayed on the screen.
+            </div>
+        </div>
+
+    </details>
+
+    <details>
+        <summary style="font-size : 20px">Declare a function/subroutine</summary>
+
+        <div class="div1">
+            Syntax:
+            <div class="div1">
+                When<span style="color : crimson;"> FunctionName </span> is called in the Mainprogram ,statements will be executed.
+                <div class = "codebox">
+                    <span style="color : blue;">BEGIN</span> <span style="color : crimson;">FunctionName</span>(<span style="color : crimson;">Parameter1</span>, <span style="color : crimson;">Parameter2</span>)<br>
+                    &emsp;statements<br>
+                    <span style="color : blue;">END</span> <span style="color : crimson;">FunctionName</span>
+                </div>
+            </div>
+            Example:
+            <div class="div1">
+                <div class = "examplebox">
+                    BEGIN Mainprogram<br>
+                        &emsp;Name = "Tahlia"<br>
+                        &emsp;Greeting(Name)<br>
+                    END Mainprogram<br>
+                    <br>
+                    BEGIN Greeting(Name1)<br>
+                        &emsp;Display "Hi " + Name1 + "!"<br>
+                    END Greeting<br>
+                </div>
+                "Hi Tahlia!" will be displayed on the screen.
+            </div>
+        </div>
+
+    </details>
+    <details>
+        <summary style="font-size : 20px">Relational operaters</summary>
+        <div class="div1">
+            <li> <span style="color : blue">></span> : Greater than
+                <div class ="div1">
+                    <div class = "examplebox">
+                        Display 6 > 5
+                    </div>
+                    "True" will be displayed.
+                </div>
+            </li>
+
+            <li> <span style="color : blue">>=</span> : Greater or equal to
+                <div class ="div1">
+                    <div class = "examplebox">
+                        Display 5 >= 5
+                    </div>
+                    "True" will be displayed.
+                </div>
+            </li>
+            <li> <span style="color : blue"><</span> : less than
+                <div class ="div1">
+                    <div class = "examplebox">
+                        Display 1 < 3
+                    </div>
+                    "True" will be displayed.
+                </div>
+            </li>
+            <li> <span style="color : blue"><=</span> : less or equal to
+                <div class ="div1">
+                    <div class = "examplebox">
+                        Display 5 <= 3
+                    </div>
+                    "False" will be displayed.
+                </div>
+            </li>
+            <li> <span style="color : blue">==</span> : equal
+                <div class ="div1">
+                    <div class = "examplebox">
+                        Display 5 == 3
+                    </div>
+                    "False" will be displayed.
+                </div>
+            </li>
+            <li> <span style="color : blue">!=</span> : not equal to
+                <div class ="div1">
+                    <div class = "examplebox">
+                        Display 5 != 3
+                    </div>
+                    "True" will be displayed.
+                </div>
+            </li>
+        </div>
+
+    </details>
+    <details>
+        <summary style="font-size : 20px">Logical operaters</summary>
+
+        <div class = "div1">
+            <details>
+                <summary>AND</summary>
+
+                    <div class = "div1">
+                        Syntax:<br>
+                        <div class = "div1">
+                            Both relational operation need to be True in order for the logical operation to return True.<br>
+                            <div class= "codebox" >
+                                relational operation <span style="color : blue;">AND</span> relational operation
+                            </div>
+                        </div>
+
+                        <br>
+                        Example:
+                        <div class = "div1">
+                            <div class= "examplebox" >
+                                Display 5 == 6 AND 5 == 5
+                            </div>
+                        "False" will be displayed on the console.
+                        </div>
+                    </div>
+            </details>
+
+             <details>
+                <summary>OR</summary>
+                    <div class = "div1">
+                        Syntax:<br>
+                        <div class = "div1">
+                            One of the relational operation need to be True in order for the logical operation to return True.<br>
+                            <div class= "codebox" >
+                                relational operation <span style="color : blue;">OR</span> relational operation
+                            </div>
+                        </div>
+
+                        <br>
+                        Example:
+                        <div class = "div1">
+                            <div class= "examplebox" >
+                                Display 5 == 6 OR 5 == 5
+                            </div>
+                        "True" will be displayed on the console.
+                        </div>
+                    </div>
+            </details>
+            <details>
+                <summary>NOT</summary>
+                    <div class = "div1">
+                        Syntax:<br>
+                        <div class = "div1">
+                            Reverse the resulting value of the operation follow by.<br>
+                            <div class= "codebox" >
+                                <span style="color : blue;">NOT</span> relational/logical operation
+                            </div>
+                        </div>
+
+                        <br>
+                        Example:
+                        <div class = "div1">
+                            <div class= "examplebox" >
+                                Display NOT (5 == 6 OR 5 == 5)
+                            </div>
+                        "False" will be displayed on the console.
+                        </div>
+                    </div>
+            </details>
+        </div>
+    </details>
+
+    <details>
+        <summary style="font-size : 20px">Pre-built function</summary>
+
+        <div class = "div1">
+            <details>
+                <summary>Display</summary>
+
+                    <div class = "div1">
+                        Purpose of function:<br>
+                        <div class = "div1">
+                            Print the given <span style="color : crimson; ">value</span> to the console(output).<br>
+                            <div class= "codebox" >
+                                 <span style="color : blue; ">Display</span> <span style="color : crimson; ">value</span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+            </details>
+
+             <details>
+                <summary>Get</summary>
+                    <div class = "div1">
+                        Purpose of function:<br>
+                        <div class = "div1">
+                            Create a new variable <span style="color : crimson;">VariableName</span> and store the given input in it.
+                            If no input is given , program will wait until input is given. If the input is float (e.g"123.32"),
+                            it will stores as a float. Else if the input is integer(e.g "1"). It will store as an integer. If input is string (e.g "Hi"), it will store as string.<br>
+                            <div class= "codebox" >
+                                <span style="color : blue;">Get</span> <span style="color : crimson;">VariableName</span>
+                            </div>
+                        </div>
+                    </div>
+            </details>
+            <details>
+                <summary>length</summary>
+                    <div class = "div1">
+                        Purpose of attribute:<br>
+                        <div class = "div1">
+                            It is an attribute for an array. This attribute contains the amount of element in the array.<br>
+                            <div class= "codebox" >
+                                <span style="color : crimson;">ArrayName</span><span style="color : blue;">.length</span>
+                            </div>
+                        </div>
+                    </div>
+            </details>
+            <details>
+                <summary>str()</summary>
+                    <div class = "div1">
+                        Purpose of function:<br>
+                        <div class = "div1">
+                            Convert the given argument to string.<br>
+                            <div class= "codebox" >
+                                <span style="color : blue;">str(</span><span style="color : crimson;">argument</span><span style="color : blue;">)</span>
+                            </div>
+                        </div>
+                    </div>
+            </details>
+            <details>
+                <summary>int()</summary>
+                    <div class = "div1">
+                        Purpose of function:<br>
+                        <div class = "div1">
+                            Convert the given argument to the nearest integer, the given argument can be either a string or float or integer.<br>
+                            <div class= "codebox" >
+                                <span style="color : blue;">int(</span></span><span style="color : crimson;">argument</span><span style="color : blue;">)</span>
+                            </div>
+                        </div>
+                    </div>
+            </details>
+        </div>
+    </details>
+
+</body>
+</html>

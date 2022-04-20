@@ -1,0 +1,106 @@
+<head>
+    <script src = "https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>NESA Interpreter</title>
+    <style type='text/css'>
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.row {
+    width: 100%;
+    /* consider h1 height */
+    height: 480px;
+}
+.col {
+    margin: 0 3px;
+    /* consider column count (here 2) and margin (2 * 3px) */
+    width: calc(100% / 2 - 6px);
+    height: 100%;
+    float: left;
+}
+label {
+    display: block;
+    width: 100%;
+    height: 20px;
+    padding-left: 2px;
+}
+textarea {
+    display: block;
+    /* only subtract margin, padding and border of textarea */
+    width: calc(100% - 4px);
+    /* additionally consider label */
+    height: 95%;
+    margin: 2px 0;
+    padding: 1px;
+    border: 1px solid;
+    resize: none;
+}
+
+    </style>
+</head>
+<body>
+        <h1>NESA Pseudocode interpreter</h1>
+        <a href="submit_error" style="margin-right: 20px;">Submit an error</a> <a href="show_syntax">Cheatsheet</a>
+        <div class="row">
+                <form id="post-form">
+                {% csrf_token %}
+                <div class="col">
+                    <label for="code">Code:</label>
+                    <textarea id="code"spellcheck="false" placeholder="Type your code here">BEGIN Mainprogram
+Display "Hello World"
+END Mainprogram
+            </textarea>
+                </div>
+                <div class="col">
+                     <label for="other">Input:</label>
+                    <textarea id="other" spellcheck="false" placeholder="Type you input here (one input per line)"></textarea>
+                 </div>
+                <input type="submit" value="Run Code"/>
+                </form>
+        </div>
+        <br>
+            <hr style="width:100%;text-align:left;margin-left:0">
+            <h1>Output :</h1>
+            <p id="result">
+
+            </p>
+            <hr style="width:100%;text-align:left;margin-left:0">
+
+
+</body>
+<script type="text/javascript">
+    document.getElementById('code').addEventListener('keydown', function(e) {
+        if (e.key == 'Tab') {
+            e.preventDefault();
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+
+            // set textarea value to: text before caret + tab + text after caret
+            this.value = this.value.substring(0, start) +
+            "\t" + this.value.substring(end);
+
+            // put caret at right position again
+            this.selectionStart =
+            this.selectionEnd = start + 1;
+            }
+        });
+    $(document).on('submit','#post-form', function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:'POST',
+            url:'/create',
+            data:{
+                other:$('#other').val(),
+                code:$('#code').val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function(data){
+                $('#result').html(data);
+            }
+        });
+    });
+</script>

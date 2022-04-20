@@ -1,0 +1,34 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <style type='text/css'>
+textarea {
+    display: block;
+    width: 85%;
+    height: 270px;
+    margin: 2px 0;
+    padding: 1px;
+    border: 1px solid;
+    resize: none;
+}
+label{
+    font-size : 250%;
+}
+
+    </style>
+</head>
+<body>
+<p id="result1">
+
+</p>
+<form id="post-form" action="submit_error" method="POST">
+                {% csrf_token %}
+                    <label for="Errorcode">Your code:</label>
+                    <textarea id="Errorcode" name="Errorcode" spellcheck="false" placeholder="Type the code where the error happen" required ></textarea>
+                    <label for="Errorinput">Your input(Optional):</label>
+                    <textarea id="Errorinput" name="Errorinput" spellcheck="false" placeholder="Type the input where the error happen"></textarea>
+                    <label for="dc">Description of bugs(Optional):</label>
+                    <textarea id="dc" name ="dc" spellcheck="false" placeholder="Descrption of the bugs"></textarea>
+                    <input type="submit" value="Submit error"/>
+                </form>
+</body>

@@ -1,0 +1,53 @@
+Statements: NEWLINE * expr (NEWLINE + expr)*
+expr				: KEYWORD:VAR IDENTIFIER EQ expr
+						: comp-expr ((KEYWORD:AND|KEYWORD:OR) comp-expr)*
+
+comp-expr		: NOT comp-expr
+						: arith-expr ((EE|LT|GT|LTE|GTE) arith-expr)*
+
+arith-expr	:	term ((PLUS|MINUS) term)*
+
+term				: factor ((MUL|DIV) factor)*
+
+factor			: (PLUS|MINUS) factor
+				: INT|FLOAT|IDENTIFIER
+						: LPAREN expr RPAREN
+						: if-expr
+						: for-expr
+						: while-expr
+						: array-expr
+
+if-expr			: KEYWORD:IF expr KEYWORD:THEN
+                  (expr if-expr-b |if-expr-c ?)
+                  | (NEWLINE statement KEYWORD:ENDIF | if-expr-b |if-expr-c)
+
+if-expr-B			: KEYWORD:elIF expr KEYWORD:THEN
+                  (expr if-expr-b |if-expr-c ?)
+                  | (NEWLINE statement KEYWORD:ENDIF | if-expr-b |if-expr-c)
+
+if-expr-c			: KEYWORD:ELSE
+                    expr
+                    | (NEWLINE statements KEYWORD:END)
+array-expr: IDENTIFIER LSQURE RSQUARE EQ LCURLY (expr , COMMA) RCULRY
+
+for-expr		: KEYWORD:FOR IDENTIFIER EQ expr KEYWORD:TO expr
+							(KEYWORD:STEP expr)? KEYWORD:THEN
+							(NEWLINE statements)
+							Keyword NEXT
+
+while-expr	: KEYWORD:WHILE expr KEYWORD:THEN
+                (NEWLINE statements)
+                ENDWHILE
+
+fuc-def : KEYWORD: BEGIN IDENTIFIER
+           LPAREN(IDENTIFIER (COMMA IDENTIFIER )*) RPAREN
+
+           | (NEWLINE statements KEYWORD:END IDENTIFER)
+
+a = (5 * 5)
+
+expr : KEYWORD : VAR IDENTIFER EQ expr
+
+6 == 6 AND 5 == 5 : (6 == 6) AND (5 == 5) the logical is less than comparision
+
+VAR a = 5 == 5 : VAR a = (5 == 5) more prioty to than varaible assignment but less in expression
