@@ -2449,11 +2449,11 @@ class Interpreter:
         if node.op_tok.matches(TT_KEYWORD, "AND") == False and node.op_tok.matches(TT_KEYWORD, "OR") == False:
             if res.should_return(): return res
 
-        if left.value == None or right.value == None:
-            return res.failure(
-                RTError(node.pos_start, node.pos_end, f"None type object can't perform binary operation",
-                        context)
-            )
+            if left == None or right == None or right.value == None or left.value == None:
+                return res.failure(
+                    RTError(node.pos_start, node.pos_end, f"None type can't perform binary operation",
+                            context)
+                )
 
         '''
         Something need to do :
@@ -2698,6 +2698,12 @@ class Interpreter:
         args = []
         # get the node that we are calling
         value_to_call = res.register(self.visit(node.node_to_call, context))
+
+        if context.display_name == node.node_to_call.var_name_tok.value:
+            return res.failure(RTError(
+                node.pos_start, node.pos_end, f"Invalid call of function", context
+            ))
+
         if res.should_return(): return res
         # so that it can show where errors came from , rather than where it define
         value_to_call = value_to_call.copy().set_pos(node.pos_start , node.pos_end)

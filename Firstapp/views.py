@@ -42,12 +42,12 @@ def create(request):
             with open(new_path, 'a') as f:
                f.write("Program is waiting for input....")
             f.close()
-        '''
+        
         except:
             python_error = True
             return_val = "Error happens in the python code , please submit an error form and contact the developers"
             return HttpResponse(return_val)
-        '''
+        
         with open(new_path, 'r') as f:
             lines = f.readlines()
             if lines != []:
